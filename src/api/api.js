@@ -54,6 +54,8 @@ class NoodleHutApi {
         return res.user;
     }
 
+    /**  */
+
 
     /**
      * APIs restricted to admins
@@ -66,6 +68,8 @@ class NoodleHutApi {
         let res = await this.request(`users`, data)
         return res.users;
     }
+
+    /** Get  */
 
 
 
