@@ -19,8 +19,10 @@ class NoodleHutApi {
         try{
             return (await axios({ url, method, data, params, headers })).data;
         } catch (err){
-            console.error("API Error:", err.response);
-            let message = err.response.data.error.message;
+            console.error("API Error:", err);
+
+            //Need to be fixed later
+            let message = err.response;
             //this checks if the message is array or not
             throw Array.isArray(message) ? message: [message];
         }
@@ -54,7 +56,13 @@ class NoodleHutApi {
         return res.user;
     }
 
-    /**  */
+    /** Get the list of categories */
+
+   static async getCategories(){
+        let res = await this.request(`categories`)
+        console.log(res.categories);
+        return res.categories;
+    }
 
 
     /**

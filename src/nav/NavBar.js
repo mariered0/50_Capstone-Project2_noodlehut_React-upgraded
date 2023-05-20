@@ -9,7 +9,7 @@ function NavBar() {
             <nav className="Navbar">
                 <NavLink exact to="/">Home</NavLink>
                 <NavLink exact to="/menu">Menu</NavLink>
-                <NavLink exaxt to="/user">Profile</NavLink>
+                <NavLink exact to="/user">Profile</NavLink>
             </nav>
         )
     }
