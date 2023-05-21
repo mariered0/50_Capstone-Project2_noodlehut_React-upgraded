@@ -4,11 +4,11 @@ import NoodleHutApi from "../api/api";
 
 const MenuList = () => {
 
-    async function getCategoryList(){
-        const res = await NoodleHutApi.getCategories();
-        console.log('API Call - res:', res);
-    }
-    getCategoryList();
+    // async function getCategoryList(){
+    //     const res = await NoodleHutApi.getCategories();
+    //     console.log('API Call - res:', res);
+    // }
+    // getCategoryList();
     // async function getUser(){
     //     const res = await NoodleHutApi.currentUser("test_admin");
     //     console.log('API Call - res:', res);
@@ -18,28 +18,35 @@ const MenuList = () => {
     // const [categories, setCategories] = useState([]);
     // useEffect(() => {
     //     getCategoryList();
-    //     console.log(categories);
     // }, []);
 
     // async function getCategoryList() {
     //     const getData = await NoodleHutApi.getCategories();
     //     setCategories(getData);
     // }
-    // getCategoryList();
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        getMenu();
+    }, []);
+
+    async function getMenu() {
+        const getData = await NoodleHutApi.getAllItems();
+        setItems(getData);
+    }
    
 
-    // if (!categories) return <h1>Loading...</h1>;
+    if (!items) return <h1>Loading...</h1>;
 
     return (
         <div>
             <h1>Menu list</h1>
 
-                {/* {categories.map((category) => (
+                {items.map((item, index, category) => (
                     <CategoryCard 
-                        key={category.categoryName}
+                        key={index}
                         category={category.categoryName}
                     />
-                    ))} */}
+                    ))}
 
             
         </div>

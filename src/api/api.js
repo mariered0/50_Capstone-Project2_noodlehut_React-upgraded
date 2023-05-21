@@ -17,9 +17,10 @@ class NoodleHutApi {
             : {};
 
         try{
+            console.log('a request was made!')
             return (await axios({ url, method, data, params, headers })).data;
         } catch (err){
-            console.error("API Error:", err);
+            console.error("API Error:", err.response);
 
             //Need to be fixed later
             let message = err.response;
@@ -58,10 +59,17 @@ class NoodleHutApi {
 
     /** Get the list of categories */
 
-   static async getCategories(){
-        let res = await this.request(`categories`)
-        console.log(res.categories);
+    static async getCategories(){
+        let res = await this.request('categories')
         return res.categories;
+    }
+
+    /** Get the list of all menu items */
+    
+    static async getAllItems() {
+        let res = await this.request('items')
+        console.log('res:', res);
+        return res.items;
     }
 
 

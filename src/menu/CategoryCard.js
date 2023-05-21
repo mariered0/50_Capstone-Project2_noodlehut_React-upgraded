@@ -2,11 +2,12 @@ import React from "react";
 import ItemCard from "./ItemCard"
 import NoodleHutApi from "../api/api";
 
-const CategoryCard = (category) => {
+const CategoryCard = ({category}) => {
+    
+
     return (
         <div>
-            <h1>Category card</h1>
-            <p>{category}</p>
+            <h2>{category}</h2>
             <ItemCard />
         </div>
     )
