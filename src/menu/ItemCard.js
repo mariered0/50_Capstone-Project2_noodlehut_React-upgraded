@@ -1,11 +1,13 @@
 import React from "react";
-import NoodleHutApi from "../api/api";
 
-const ItemCard = ({items}) => {
+
+const ItemCard = ({name, desc, price}) => {
     return (
         <div>
-            <h1>Item card</h1>
-            
+            <h3>{name}</h3>
+            <p>{desc}</p>
+            <p>{price}</p>
+           
         </div>
     )
 }

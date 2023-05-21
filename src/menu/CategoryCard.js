@@ -3,27 +3,28 @@ import ItemCard from "./ItemCard"
 import NoodleHutApi from "../api/api";
 
 const CategoryCard = ({category}) => {
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        getItems();
+    }, []);
+
+    async function getItems() {
+        const getData = await NoodleHutApi.getAllItems();
+        setItems(getData);
+    }
 
     return (
         <div>
             <h2>{category}</h2>
-            
 
-
-            {/* {categories.map((category, idx) => (
-                    <CategoryCard 
-                        key={idx}
-                        category={category}
-                        items={items}
-                    />
-                    ))} */}
-
-
-
-            {/* {items.Appetizers.map((item) => (
+            {items.filter(item => item.categoryName === `${category}`).map(filteredItem => (
                 <ItemCard 
-                    itemName={item.itemName}
-            />))} */}
+                    key={filteredItem.id}
+                    name={filteredItem.itemName}
+                    desc={filteredItem.itemDesc}
+                    price={filteredItem.itemPrice}
+                />
+            ))}
             
         </div>
     )
