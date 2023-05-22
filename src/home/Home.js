@@ -1,10 +1,15 @@
 import { Container, Typography } from "@material-ui/core";
 import React from "react";
+import useStyles from './Home.styles';
+
 
 function Home() {
+  const classes = useStyles();
+  
   return (
     <main>
-      <Container maxWidth="sm">
+      <div className={classes.container}>
+      <Container maxWidth="sm" style={{ marginTop: '100px' }}>
         <Typography variant="h2" align="center" color="textPrimary" gutterBottom>NoodleHut
         </Typography>
         <Typography variant="h5" align="center" color="textSecondary" paragraph>
@@ -12,6 +17,7 @@ function Home() {
         </Typography>
 
       </Container>
+      </div>
     </main>
   );
 }
