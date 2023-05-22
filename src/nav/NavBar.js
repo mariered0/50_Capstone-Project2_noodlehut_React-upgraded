@@ -1,46 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
-import { makeStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-} from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-}));
+import { AppBar, Toolbar, Typography, Button, CssBaseline } from "@material-ui/core";
 
 function NavBar() {
-  const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
+    <>
+      <CssBaseline />
+      <AppBar position="relative">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-
           <NavLink exact to="/">
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6">
             NoodleHut
           </Typography>
           </NavLink>
@@ -59,7 +30,7 @@ function NavBar() {
         </Toolbar>
       </AppBar>
 
-    </div>
+    </>
   );
 }
 
