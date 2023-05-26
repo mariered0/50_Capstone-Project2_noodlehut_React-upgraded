@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import CategoryCard from "./CategoryCard";
 import NoodleHutApi from "../api/api";
+import { Container, Typography } from "@material-ui/core";
+import useStyles from "./MenuList.styles";
 
 const MenuList = () => {
 
@@ -8,6 +10,8 @@ const MenuList = () => {
     useEffect(() => {
         getMenu();
     }, []);
+
+    const classes = useStyles();
 
     async function getMenu() {
         const getData = await NoodleHutApi.getAllItems();
@@ -22,7 +26,17 @@ const MenuList = () => {
 
     return (
         <div>
-            <h1>Menu list</h1>
+            <div className={classes.heroContent}>
+            <Container maxWidth="sm">
+            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+              Menu
+            </Typography>
+            <Typography variant="h5" align="center" color="textSecondary" paragraph>
+              Enjoy our authentic Thai food.
+            </Typography>
+           
+          </Container>
+            </div>
 
                 {items.map((categoryName, idx) => (
                     <CategoryCard 
